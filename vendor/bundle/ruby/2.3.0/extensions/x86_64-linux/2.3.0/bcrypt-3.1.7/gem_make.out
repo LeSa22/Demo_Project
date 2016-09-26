@@ -1,0 +1,24 @@
+current directory: /home/lesa/Documents/ruby/project_demo/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.7/ext/mri
+/home/lesa/.rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20160925-8808-1985j59.rb extconf.rb
+checking for ruby/util.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/lesa/Documents/ruby/project_demo/vendor/bundle/ruby/2.3.0/extensions/x86_64-linux/2.3.0/bcrypt-3.1.7/mkmf.log
+
+current directory: /home/lesa/Documents/ruby/project_demo/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.7/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/lesa/Documents/ruby/project_demo/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.7/ext/mri
+make "DESTDIR="
+compiling wrapper.c
+compiling crypt_gensalt.c
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+compiling crypt.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/lesa/Documents/ruby/project_demo/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.7/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20160925-8808-1hl3plx

@@ -16,7 +16,7 @@ textarea {
   text-align: center;
   
 }
-.back{
+.jumbotron{
   background: url('home-bg.jpg');
 }
 .center h1 {
@@ -202,4 +202,7 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+.username{
+  color: black ;
 }

@@ -1,26 +1,16 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
-
     <section class="user_info">
-    <div class="ui four wide middle center aligned column left-col">
-            <!-- Avatar -->
-            <div class="ui main avatar image">
-             <%= gravatar_for @user %>
-             
-            </div>
-    <div class="ui basic segment">
-              <strong id="name"><%= @user.name %></strong>
-              <div class="ui basic segment">
-              </div>
-            </div>
-</div>
-    
-  
-    
+        <%= gravatar_for @user %>
+        <strong id="name"><%= @user.name %></strong>  
     </section>
+    <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
   </aside>
   <div class="col-md-8">
+  <%= render 'follow_form' if logged_in? %>
     <% if @user.entries.any? %>
       <h3>Entry (<%= @user.entries.count %>)</h3>
       <ol class="microposts">

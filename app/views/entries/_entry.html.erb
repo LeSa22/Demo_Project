@@ -1,12 +1,22 @@
 <li id="entry-<%= entry.id %>">
-  <%= link_to gravatar_for(entry.user, size: 50), entry.user %>
+<%= link_to gravatar_for(entry.user, size: 50), entry.user %>
   <span class="user"><%= link_to entry.user.name, entry.user %></span>
-  <span class="content"><%= entry.title %></span>
-  <span class="content"><%= entry.content %>
-    <%= image_tag entry.picture.url if entry.picture? %>
-  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(entry.created_at) %> ago.|
+  <div class="post-preview">
+
+                        <span class="post-title">
+                            <%= link_to entry.title, entry.user %>
+                        </span>
+                        <h3 class="post-subtitle">
+                         <%= image_tag entry.picture.url if entry.picture? %>
+                           <%= entry.content %>
+                          
+                        </3>
+                    
+                    <p class="post-meta">Posted on <%= time_ago_in_words(entry.created_at) %></p>
+                </div>
+                
+                <span class="timestamp">
+    Posted <%= time_ago_in_words(entry.created_at) %> ago.
     <% if current_user?(entry.user) %>
       <%= link_to "delete", entry, method: :delete,
                                        data: { confirm: "You sure?" } %>

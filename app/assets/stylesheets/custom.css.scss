@@ -16,8 +16,10 @@ textarea {
   text-align: center;
   
 }
-.jumbotron{
+.intro-header .page-heading{
   background: url('home-bg.jpg');
+  height: 50%;
+  padding: 60px;
 }
 .center h1 {
   margin-bottom: 10px;
@@ -36,13 +38,6 @@ h1 {
 
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal; 
-}
 
 p {
   font-size: 1.1em;
@@ -310,3 +305,29 @@ span.picture {
 .intro-header{
   margin-top: 10px;
 }
+
+.post-preview .post-title{
+  font-size: 36px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  
+    font-weight: 800;
+    line-height: 1.5;
+    color: inherit;
+  
+}
+.post-preview .post-subtitle {
+    margin: 0px 10px;
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 24px;
+    }
+.post-preview .post-meta {
+  color:  #777;
+  font-size: 18px;
+font-style: italic;
+margin-top: 0px;
+}
+.post-preview .post-meta a{
+    text-decoration: none;
+  }

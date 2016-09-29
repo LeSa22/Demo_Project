@@ -17,14 +17,17 @@
     </div>
   </div>
 <% else %>
-<div class="center jumbotron">
-  <h1>Welcome to the Demo Blog</h1>
 
-  <h2>
+<div class="page-heading">
+  <h1>Welcome to Demo Blog</h1>
+  <hr class="medium"></hr>
+  <p>
     This is the home page for the Blog demo application.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </p>
+  <div class="button">
+   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
 </div>
+   <%= render 'entries/show' %>
 
 <% end %>

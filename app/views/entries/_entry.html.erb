@@ -4,30 +4,42 @@
   <div class="post-preview">
 
     <span class="post-title">
-      <%= link_to entry.title, entry.user %>
+      <%= link_to entry.title, entry %>
     </span>
     <h3 class="post-subtitle">
      <%= image_tag entry.picture.url if entry.picture? %>
      <%= entry.content %>
-     
    </h3>
-   
-   <p class="post-meta">Posted on <%= time_ago_in_words(entry.created_at) %></p>
- </div>
- 
- <span class="timestamp">
-  Posted <%= time_ago_in_words(entry.created_at) %> ago.
-  <% if current_user?(entry.user) %>
-  <%= link_to "delete", entry, method: :delete,
-  data: { confirm: "You sure?" } %>
+   <span class="timestamp">
+    <p class="post-meta">Posted on <%= time_ago_in_words(entry.created_at) %></p>
+    <% if current_user?(entry.user) %>
+    <%= link_to "delete", entry, method: :delete,
+    data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+  <% if logged_in? %>
+    <%=render 'shared/comment_form'%>
   <% end %>
-</span>
-<div class="aa-blog-comment-threat">
-<p>sssssssssssssss</p>
-<% @entries.each  do |entry|  %>
-  <% entry.comments do |comment| %>
-    <p><%=comment.content%> </p>
-  <% end %>
-<% end %>
+</div>
+  <div>
+    <h3>Comments(<%=entry.comments.count%>)</h3>
+    <ul>
+      <% entry.comments.each do |comment| %>
+      <li>
+        <div>
+          <div><%= link_to gravatar_for(comment.entry.user, size: 50), comment.entry.user %>
+          </div>
+          <div>
+            <span><%= link_to comment.user.name, entry.user %></span>
+            <span><%=comment.created_at.strftime('%B, %d, %Y')%></span>
+            <% if comment.entry.user.id == comment.user.id %>
+            <span class="author-tag">Author</span>
+            <% end %>
+            <p><%= comment.content %></p>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </li>
-

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
-
    root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
@@ -16,8 +15,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :entries,          only: [:create, :destroy] do 
-    resources :comments
+  resources :entries,          only: [:show, :index, :create, :destroy] do 
+    resources :comments, only: [:show, :create, :destroy]
   end
   resources :relationships,       only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

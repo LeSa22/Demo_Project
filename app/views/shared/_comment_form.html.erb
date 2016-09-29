@@ -1,0 +1,12 @@
+<div id="respond">
+  <h3 class="reply-title">Leave a Comment</h3>
+  <%= form_for([@entry, @entry.comments.build]) do |f| %>
+  <p class="comment-form-comment">
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: "Content" %>
+  </p>
+  <p class="form-submit">
+    <%= f.submit "Post", class: "aa-browse-btn" %>
+  </p>
+  <% end %>
+</div>

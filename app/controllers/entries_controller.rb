@@ -12,12 +12,14 @@ class EntriesController < ApplicationController
     end
   end
  def show
-    @users = User.all
-    @entries = @user.entries.paginate(page: params[:page])
+    @entrys = Entry.paginate(page: params[:page], :per_page=>2)
+    @entry = Entry.find(params[:id])
     @comments = @entry.comments.paginate(page: params[:page], per_page: 5)
+
     if logged_in?
       @comment  = @entry.comments.build
     end
+   
   end
   def destroy
     @entry.destroy

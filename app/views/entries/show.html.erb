@@ -1,19 +1,33 @@
 
-  <%= link_to gravatar_for(@entry.user, size: 50), @entry.user %>
-  <span class="user"><%= link_to @entry.user.name, @entry.user %></span>
-  <div class="post-preview">
+<%= link_to gravatar_for(@entry.user, size: 50), @entry.user %>
+<span class="user"><%= link_to @entry.user.name, @entry.user %></span>
+<div class="post-preview">
 
-    <span class="post-title">
-      <%= link_to @entry.title, @entry %>
-    </span>
-    <h3 class="post-subtitle">
-     <%= image_tag @entry.picture.url if @entry.picture? %>
-     <%= @entry.content %>
-   </h3>
-   <span class="timestamp">
-    <p class="post-meta">Posted on <%= time_ago_in_words(@entry.created_at) %></p>
-    <% if current_user?(@entry.user) %>
-    <%= link_to "delete", @entry, method: :delete,
-    data: { confirm: "You sure?" } %>
-    <% end %>
+  <span class="post-title">
+    <%= link_to @entry.title, @entry %>
   </span>
+  <h3 class="post-subtitle">
+   <%= image_tag @entry.picture.url if @entry.picture? %>
+   <%= @entry.content %>
+ </h3>
+ <span class="timestamp">
+  <p class="post-meta">Posted on <%= time_ago_in_words(@entry.created_at) %></p>
+  <% if current_user?(@entry.user) %>
+  <%= link_to "delete", @entry, method: :delete,
+  data: { confirm: "You sure?" } %>
+  <% end %>
+</span>
+<% if logged_in? %>
+<%=render 'shared/comment_form'%>
+
+<%else%>
+<h3>Please login to comment !</h3>
+<% end %>
+</div>
+<div>
+  <h3>Comments(<%=@entry.comments.count%>)</h3>
+  <ul>
+    <%=render @comments%>
+  </ul>
+</div>
+

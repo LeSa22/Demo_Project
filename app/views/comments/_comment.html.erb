@@ -1,0 +1,15 @@
+<li>
+  <div>
+    <div><%= link_to gravatar_for(comment.entry.user, size: 50), comment.entry.user %>
+    </div>
+    <div>
+      <span><%= link_to comment.user.name, @entry.user %></span>
+      <span><%=comment.created_at.strftime('%B, %d, %Y')%></span>
+      <% if comment.entry.user.id == comment.user.id %>
+      <span class="author-tag">Author</span>
+      <% end %>
+      <p><%= comment.content %></p>
+    </div>
+  </div>
+</li>
+

@@ -17,9 +17,6 @@
     data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-  <% if logged_in? %>
-    <%=render 'shared/comment_form'%>
-  <% end %>
 </div>
   <div>
     <h3>Comments(<%=entry.comments.count%>)</h3>

@@ -32,8 +32,5 @@ class EntriesController < ApplicationController
   	params.require(:entry).permit(:content,:title, :picture)
   	
   end
-  def correct_user
-      @entry = current_user.entries.find_by(id: params[:id])
-      redirect_to root_url if @entry.nil?
-    end
+  
 end

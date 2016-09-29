@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :entries,          only: [:create, :destroy]
+  resources :entries,          only: [:create, :destroy] do 
+    resources :comments
+  end
   resources :relationships,       only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

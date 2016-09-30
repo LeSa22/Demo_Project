@@ -12,10 +12,7 @@
  </h3>
  <span class="timestamp">
   <p class="post-meta">Posted on <%= time_ago_in_words(@entry.created_at) %></p>
-  <% if current_user?(@entry.user) %>
-    <%= link_to "delete", @entry, method: :delete,
-    data: { confirm: "You sure?" } %>
-  <% end %>
+ 
 </span>
 <% if logged_in? %>
 <%=render 'shared/comment_form'%>

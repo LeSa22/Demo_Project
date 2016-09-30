@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
     end
   end
  def show
-    @entries = Entry.paginate(page: params[:page], :per_page=>2)
+    @entries = Entry.paginate(page: params[:page], per_page:2)
     @entry = Entry.find(params[:id])
     @comments = @entry.comments.paginate(page: params[:page], per_page: 5)
 
@@ -32,5 +32,9 @@ class EntriesController < ApplicationController
   	params.require(:entry).permit(:content,:title, :picture)
   	
   end
+  def correct_user
+      @entry = current_user.entries.find_by(id: params[:id])
+      redirect_to root_url if @entry.nil?
+    end
   
 end

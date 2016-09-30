@@ -43,9 +43,9 @@ gem "pry"
 gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'byebug'
-	
+	  gem 'sqlite3'
 group :development, :test do
-  gem 'sqlite3'
+
  
 end
 

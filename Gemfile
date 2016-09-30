@@ -40,13 +40,13 @@ gem "pry"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-	
-group :development, :test do
-  gem 'sqlite3'
- gem 'web-console', '~> 2.0'
+gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'byebug'
+	 gem 'sqlite3'
+group :development, :test do
+ 
+ 
 end
 
 group :production do

@@ -41,23 +41,24 @@ gem "pry"
 # gem 'capistrano-rails', group: :development
 
 gem 'web-console', '~> 2.0'
-  gem 'spring'
-  gem 'byebug'
-	  
-group :development, :test do
+gem 'spring'
+gem 'byebug'
+gem 'rails_12factor'
 gem 'sqlite3'
- 
+group :development, :test do
+
+	
 end
 
 group :production do
-  gem 'pg'
-gem 'rails_12factor'
+	gem 'pg'
+
 end
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 
 
   # Access an IRB console on exception pages or by using <%= console %> in views
- 
+  
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 

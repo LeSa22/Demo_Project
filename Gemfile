@@ -44,9 +44,9 @@ gem 'web-console', '~> 2.0'
 gem 'spring'
 gem 'byebug'
 gem 'rails_12factor'
-gem 'sqlite3'
-group :development, :test do
 
+group :development, :test do
+gem 'sqlite3'
 	
 end
 

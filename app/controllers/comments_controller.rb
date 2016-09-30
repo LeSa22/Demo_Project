@@ -16,15 +16,8 @@ class CommentsController < ApplicationController
   def show
     @comments = Comment.find(params[:user_id])
   end
-  def new
-      @entry = Entry.find(params[:entry_id])
-      @comment = @entry.comments.new(:parent_id => params[:parent_id])
-  end
+ 
 
-  def index
-    @entry = Entry.find(params[:entry_id])
-    @comments = @entry.comments.arrange(:order => :created_at)
-  end
   private
     def comment_params
       params.require(:comment).permit(:content, :entry_id)

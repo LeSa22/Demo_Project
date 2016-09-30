@@ -39,17 +39,19 @@ gem "pry"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+
+	
+group :development, :test do
+  gem 'sqlite3'
  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'byebug'
-
-	gem 'rails_12factor'
-group :development, :test do
-  gem 'sqlite3'
 end
 
 group :production do
   gem 'pg'
+gem 'rails_12factor'
 end
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 

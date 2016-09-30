@@ -13,11 +13,11 @@ gem 'fog',                     '1.36.0'
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -40,7 +40,12 @@ gem "pry"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :assets do 
+    gem 'sass-rails'
+    gem 'coffee-rails', '~> 4.1.0'
+    gem 'uglifier', '>= 1.3.0'
 
+end
 group :development, :test do
 gem 'sqlite3'
 gem 'web-console', '~> 2.0'
@@ -50,8 +55,7 @@ end
 
 group :production do
 	gem 'pg'
-
-gem 'rails_12factor'
+	gem 'rails_12factor'
 end
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

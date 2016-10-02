@@ -46,6 +46,7 @@ group :assets do
     gem 'uglifier', '>= 1.3.0'
    
 end
+
 group :development, :test do
  gem 'sqlite3'
 gem 'web-console', '~> 2.0'

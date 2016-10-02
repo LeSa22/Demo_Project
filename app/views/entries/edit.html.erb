@@ -14,7 +14,7 @@
   <%= image_tag @entry.picture.url if @entry.picture? %>
   <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
-  <%= f.submit "Update", class: "btn btn-primary" %>
+  <%= f.submit "Update", class: "btn btn-primary", style:('width: 90px;') %>
   <%= link_to "Cancel", :back, {:class=>"btn btn-primary"} %>
   
 <% end %>

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	 before_action :logged_in_user, only: [:create]
+	 before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
 
   def create
   	@entry = Entry.find(params[:entry_id])
@@ -14,7 +14,28 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comments = Comment.find(params[:user_id])
+    @comment = Comment.find(params[:id])
+  end
+  def edit
+    @entry = Entry.find(params[:entry_id])
+    @comment = @entry.comments.find(params[:id])
+  end
+  def update
+    @entry = Entry.find(params[:entry_id])
+    @comment = @entry.comments.find(params[:id])
+    if @comment.update_attributes(comment_params)
+      flash[:success] = "Comment updated"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+  def destroy
+    @entry = Entry.find(params[:entry_id])
+    @comment = @entry.comments.find(params[:id])
+    @comment.destroy
+    flash[:success] = "Comment deleted"
+    redirect_to request.referrer || root_url
   end
  
 

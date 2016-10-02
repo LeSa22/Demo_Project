@@ -1,6 +1,6 @@
 <div id="respond">
   <h3 class="reply-title">Leave a Comment</h3>
-  <%= form_for([@entry, @entry.comments.build]) do |f| %>
+  <%= form_for([@entry, @entry.comments.build], remote: true) do |f| %>
   <p class="comment-form-comment">
     <%= f.label :content %>
     <%= f.text_area :content, placeholder: "Content" %>

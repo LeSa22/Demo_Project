@@ -14,6 +14,7 @@
   <div class="col-md-8">
     <h3>Entry Feed</h3>
     <%= render 'shared/feed' %>
+    
   </div>
 </div>
 <% else %>
@@ -27,5 +28,21 @@
    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
  </div>
 </div>
-<%=render 'entries/show' %>
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+  <% @entry.each do |entry| %>
+  <div class="post-preview">
+    <span class="post-title">
+      <%= link_to entry.title, entry %>
+    </span>
+    <h3 class="post-subtitle">
+      <%= entry.content %>
+    </3>
+
+    <p class="post-meta">Posted by <%= link_to entry.user.name, entry.user %> on <%= time_ago_in_words(entry.created_at) %></p>
+  </div>
+
+  <hr></hr>
+<% end %>
+</div>
+<%= will_paginate @entry%>
 <% end %>

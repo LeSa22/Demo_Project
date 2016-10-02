@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem "pry"
-
+gem 'sqlite3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -47,7 +47,7 @@ group :assets do
    
 end
 group :development, :test do
- gem 'sqlite3'
+ 
 gem 'web-console', '~> 2.0'
 gem 'spring'
 gem 'byebug'

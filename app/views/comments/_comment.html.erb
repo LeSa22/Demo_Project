@@ -5,11 +5,14 @@
     <div>
       <span><%= link_to comment.user.name, @entry.user %></span>
       <span><%=comment.created_at.strftime('%B, %d, %Y')%></span>
-      <% if comment.entry.user.id == comment.user.id %>
-      <span class="author-tag">Author</span>
-      <% end %>
-      <p><%= comment.content %></p>
+      <% if logged_in? 
+        if comment.user.id == current_user.id%>
+        <%= link_to "delete",[comment.entry,comment], method: :delete,
+        data: { confirm: "You sure?" } %>
+        <% end 
+        end%>
+        <p><%= comment.content %></p>
+      </div>
     </div>
-  </div>
-</li>
+  </li>
 

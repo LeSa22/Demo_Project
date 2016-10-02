@@ -13,25 +13,30 @@
    <span class="timestamp">
     <p class="post-meta">Posted on <%= time_ago_in_words(entry.created_at) %></p>
     <% if current_user?(entry.user) %>
-    <%= link_to "delete", entry, method: :delete,
+    <%= link_to "edit", edit_entry_path(entry)%> |
+    <%= link_to "Delete", entry, method: :delete,
     data: { confirm: "You sure?" } %>
+
     <% end %>
   </span>
 </div>
-  <div>
-    <h3>Comments(<%=entry.comments.count%>)</h3>
-    <ul>
-      <% entry.comments.each do |comment| %>
-      <li>
+<div>
+  <h3>Comments(<%=entry.comments.count%>)</h3>
+  <ul>
+    <% entry.comments.each do |comment| %>
+    <li>
+      <div>
+        <div><%= link_to gravatar_for(comment.entry.user, size: 50), comment.entry.user %>
+        </div>
         <div>
-          <div><%= link_to gravatar_for(comment.entry.user, size: 50), comment.entry.user %>
-          </div>
-          <div>
-            <span><%= link_to comment.user.name, entry.user %></span>
-            <span><%=comment.created_at.strftime('%B, %d, %Y')%></span>
-            <% if comment.entry.user.id == comment.user.id %>
-            <span class="author-tag">Author</span>
-            <% end %>
+          <span><%= link_to comment.user.name, entry.user %></span>
+          <span><%=comment.created_at.strftime('%B, %d, %Y')%></span>
+          <% if logged_in? 
+            if comment.user.id == current_user.id%>
+            <%= link_to "delete",[comment.entry,comment], method: :delete,
+            data: { confirm: "You sure?" } %>
+            <% end 
+            end%>
             <p><%= comment.content %></p>
           </div>
         </div>
